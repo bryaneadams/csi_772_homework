@@ -1,0 +1,151 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=.5in, right=.5in]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{makecell}
+\usepackage{algorithm}
+\usepackage{subcaption}
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11.0in
+\textheight = 700pt
+
+\setlength{\parindent}{0pt}
+
+
+
+\begin{document}
+
+
+CSI 772 \\
+Homework 1 \\
+Bryan Adams 
+
+\section*{Problem 1}
+
+\subsection*{1a}
+
+Both resulting matrixes are identical. This makes since because we are only apply transformations to the data in a different order. Both IDF and word count normalization depends on the original data and not the previous calculation, therefore, the order does not matter which order you apply. See Appendix A for python code used to normalize the data.
+
+\subsection*{1b}
+
+Article "tmnt raph" is the closest to "tmnt mike", reference Table \ref{tmnt_mike} for distance calculations.
+
+\begin{table}[h!]
+    \centering
+    \caption{Euclidean distance between given document and the document named “tmnt mike”}
+    \vspace*{4mm}
+    \label{tmnt_mike}
+    \begin{tabular}{c|c}
+        \Xhline{3\arrayrulewidth}
+        Article & Euclidean distance to "tmnt mike" \\\hline
+        tmnt leo: & 0.0412 \\
+        tmnt raph:& 0.0378 \\
+        tmnt don: & 0.0420 \\
+        real leo: & 0.0489 \\
+        real raph:& 0.0449 \\
+        real mike:& 0.0475 \\
+        real don: & 0.0638 \\
+        \Xhline{3\arrayrulewidth}
+    \end{tabular}
+\end{table}
+
+\subsection*{1c}
+
+The distance matrix is found in Table \ref{distance_matrix}. When running hierarchical agglomerative clustering, complete linkage provides the best clusters when $K=2$ because it will cluster the Teenage Mutant Ninja Turtles articles together and the artist articles together, reference Figures \ref{fig:sub1} and \ref{fig:sub2} for the dendograms. 
+
+\begin{table}[h!]
+    \centering
+    \caption{Distance matrix for documents}
+    \vspace*{4mm}
+    \label{distance_matrix}
+    \begin{tabular}{lrrrrrrrr}
+        \Xhline{3\arrayrulewidth}
+        & tmnt leo & tmnt raph & tmnt mike & tmnt don & real leo & real raph & real mike & real don \\\hline
+        tmnt leo & 0.0000 & 0.0386 & 0.0412 & 0.0444 & 0.0425 & 0.0496 & 0.0648 & 0.0671 \\
+        tmnt raph & 0.0386 & 0.0000 & 0.0378 & 0.0429 & 0.0550 & 0.0462 & 0.0668 & 0.0688 \\
+        tmnt mike & 0.0412 & 0.0378 & 0.0000 & 0.0420 & 0.0489 & 0.0449 & 0.0475 & 0.0638 \\
+        tmnt don & 0.0444 & 0.0429 & 0.0420 & 0.0000 & 0.0537 & 0.0504 & 0.0619 & 0.0537 \\
+        real leo & 0.0425 & 0.0550 & 0.0489 & 0.0537 & 0.0000 & 0.0394 & 0.0534 & 0.0553 \\
+        real raph & 0.0496 & 0.0462 & 0.0449 & 0.0504 & 0.0394 & 0.0000 & 0.0504 & 0.0544 \\
+        real mike & 0.0648 & 0.0668 & 0.0475 & 0.0619 & 0.0534 & 0.0504 & 0.0000 & 0.0580 \\
+        real don & 0.0671 & 0.0688 & 0.0638 & 0.0537 & 0.0553 & 0.0544 & 0.0580 & 0.0000 \\
+    \Xhline{3\arrayrulewidth}
+    \end{tabular}
+\end{table}
+
+\begin{figure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../plots/tmnt_complete.png}
+        \caption{Hierarchical Agglomerative Clustering with complete linkage}
+        \label{fig:sub1}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../plots/tmnt_single.png}
+        \caption{Hierarchical Agglomerative Clustering with complete linkage}
+        \label{fig:sub2}
+    \end{subfigure}
+\end{figure}
+
+
+\subsection*{1d}
+
+The top 20 most common words and their word count are found in Table \ref{word_count}. They make up 24.3425\% of the word count.
+
+\begin{table}[h!]
+    \centering
+    \caption{Top 20 most common words}
+    \vspace*{4mm}
+    \label{word_count}
+    \begin{tabular}{c|cccccccccccccccccccc}
+        \Xhline{3\arrayrulewidth}
+        Word & the & and & his & was & leonardo & that & for & with & michelangelo & raphael\\\hline
+        Count & 2664 & 1127 & 636 & 453 & 342 & 297 & 282 & 279 & 277 & 212 \\
+        \Xhline{3\arrayrulewidth}
+        Word &  from & this & which & turtles & donatello & him & series & were & who & one \\\hline
+        Count & 209 & 189 & 129 & 127 & 117 & 116 & 115 & 111 & 110 & 103 \\
+        \Xhline{3\arrayrulewidth}
+    \end{tabular}
+\end{table}
+
+\subsection*{1e}
+
+Our collection of 8 wikipedia articles appears to follow Zipf's law. When looking at Figure \ref{fig:zipf}, you can see the data is generally linear with a slope = 1. This implies that the number of times words appear in our article generally follows Zipf's law.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{../plots/zipf_law.png}
+    \caption{Word counts in our articles vs Zipf's Law theoretical word counts}
+    \label{fig:zipf}
+\end{figure}
+
+\newpage
+
+\section*{Problem 2}
+
+See attached solutions.
+
+% \subsection*{a.}
+
+% \begin{subequations}
+%     \begin{equation}
+%         \frac{1}{2}\sum_{k=1}^{k}\frac{1}{n_k}\sum_{c(i)=k}\sum_{c(j)=k}\|\mathbf{X_i}-\mathbf{X_j}\|^2_2
+%     \end{equation}
+%     \begin{equation}
+%         \frac{1}{2}\sum_{k=1}^{k}\frac{1}{n_k}\sum_{c(i)=k}\sum_{c(j)=k}\|(\mathbf{X_i}-\overline{\mathbf{X_k}})-(\mathbf{X_j}-\overline{\mathbf{X_k}})\|^2_2
+%     \end{equation}
+%     \begin{equation}
+%         \frac{1}{2}\sum_{k=1}^{k}\frac{1}{n_k}\sum_{c(i)=k}\sum_{c(j)=k}\|(\mathbf{X_i}-\overline{\mathbf{X_k}})\|^2 + \|(\mathbf{X_j}-\overline{\mathbf{X_k}})\|^2 -2\langle\mathbf{X_i}-\overline{\mathbf{X_k}},\mathbf{X_j}-\overline{\mathbf{X_k}}\rangle
+%     \end{equation}
+% \end{subequations}
+
+
+
+
+\end{document}
+
