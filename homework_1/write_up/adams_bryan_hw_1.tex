@@ -95,7 +95,7 @@ The distance matrix is found in Table \ref{distance_matrix}. When running hierar
 
 \subsection*{1d}
 
-The top 20 most common words and their word count are found in Table \ref{word_count}. They make up 24.3425\% of the word count.
+The top 20 most common words and their word count are found in Table \ref{word_count}. They make up 24.3425\% of the word count. It takes $\mathbf{254}$ words to account for at least 50\% of the words in the documents.
 
 \begin{table}[h!]
     \centering
@@ -144,8 +144,124 @@ See attached solutions.
 %     \end{equation}
 % \end{subequations}
 
+\section*{Problem 3}
 
+\subsection*{3a,3b}
 
+The hierarchical agglomerative clustering using both single linkage and complete linkage are found in Figure \ref{fig:3a}. Their dendogram plots are found in Figure \ref{fig:3a_den}.
+
+\begin{figure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../plots/single_linkage.png}
+        \caption{Problem 3 data with K=4 and using single linkage to cluster}
+        \label{fig:single_linkage}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../plots/complete_linkage.png}
+        \caption{Problem 3 data with K=4 and using complete linkage to cluster}
+        \label{fig:complete_linkage}
+    \end{subfigure}
+    \caption{Hierarchical Agglomerative Cluster plots for problems 3a and 3b}\label{fig:3a}
+\end{figure}
+
+\begin{figure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../plots/3a_single_dendrogram.png}
+        \caption{Problem 3 data with K=4 and using single linkage to cluster}
+        \label{fig:single_linkage}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../plots/3a_complete_dendrogram.png}
+        \caption{Problem 3 data with K=4 and using complete linkage to cluster}
+        \label{fig:complete_linkage}
+    \end{subfigure}
+    \caption{Hierarchical Agglomerative Cluster dendogram plots for problems 3a and 3b}\label{fig:3a_den}
+\end{figure}
+
+\subsection*{3c}
+The hierarchical agglomerative clustering using both single linkage and complete linkage and the squared distances, $d_{ij}^2$ are found in Figure \ref{fig:3c}. As expected, the dendograms did not change because $h(\cdot)$ is a monotone increase function. Their dendogram plots are found in Figure \ref{fig:3c_den}.
+
+\begin{figure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../plots/single_squared.png}
+        \caption{Problem 3 data with K=4, squared distances, and using single linkage to cluster}
+        \label{fig:single_squared}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../plots/complete_squared.png}
+        \caption{Problem 3 data with K=4, squared distances, and using complete linkage to cluster}
+        \label{fig:complete_squared}
+    \end{subfigure}
+    \caption{Hierarchical Agglomerative Cluster plots for problem 3c}\label{fig:3c}
+\end{figure}
+
+\begin{figure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../plots/3c_single_squared_dendrogram.png}
+        \caption{Problem 3 data with K=4, squared distances, and using single linkage to cluster}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../plots/3c_complete_squared_dendrogram.png}
+        \caption{Problem 3 data with K=4, squared distances, and using complete linkage to cluster}
+    \end{subfigure}
+    \caption{Hierarchical Agglomerative Cluster dendogram plots for problem 3c}\label{fig:3c_den}
+\end{figure}
+
+\subsection*{3d}
+
+\subsection*{3e}
+
+The hierarchical agglomerative clustering using average linkage with $K=3,4$ and both $d_{ij}$ and $d_{ij}^2$ was conducted. When using $K=4$, the clusters did not change between using $d_{ij}$ and $d_{ij}^2$, reference Figures \ref{fig:average_4} and \ref{fig:average_squared_4}; however, it did change when using $K=3$, reference Figures \ref{fig:average_3} and \ref{fig:average_squared_3}. The dendogram plots are found in Figure \ref{fig:3e_den}.
+
+\begin{figure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../plots/average_linkage_4.png}
+        \caption{Problem 3 data with K=4, non-squared squared distances, and using average linkage to cluster}
+        \label{fig:average_4}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../plots/average_squared_4.png}
+        \caption{Problem 3 data with K=4, squared distances, and using average linkage to cluster}
+        \label{fig:average_squared_4}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../plots/average_linkage_3.png}
+        \caption{Problem 3 data with K=3, non-squared distances, and using average linkage to cluster}
+        \label{fig:average_3}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../plots/average_squared_3.png}
+        \caption{Problem 3 data with K=3, squared distances, and using average linkage to cluster}
+        \label{fig:average_squared_3}
+    \end{subfigure}
+    \caption{Hierarchical Agglomerative Cluster plots for problem 3e}
+\end{figure}
+
+\begin{figure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../plots/3e_average_dendrogram.png}
+        \caption{Problem 3 data with K=4, squared distances, and using single linkage to cluster}
+    \end{subfigure}
+    \begin{subfigure}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../plots/3e_average_squared_dendrogram.png}
+        \caption{Problem 3 data with K=4, squared distances, and using complete linkage to cluster}
+    \end{subfigure}
+    \caption{Hierarchical Agglomerative Cluster dendogram plots for problem 3c}\label{fig:3e_den}
+\end{figure}
 
 \end{document}
 
