@@ -28,7 +28,7 @@ Bryan Adams
 
 \subsection*{1a}
 
-Both resulting matrixes are identical. This makes since because we are only apply transformations to the data in a different order. Both IDF and word count normalization depends on the original data and not the previous calculation, therefore, the order does not matter which order you apply. See Appendix A for python code used to normalize the data.
+Both resulting matrices are identical. This makes since because we are only applying transformations to the data in a different order. Both IDF and word count normalization depend on the original data, therefore, the order does not matter which order you apply. See Appendix A for python code used to normalize the data.
 
 \subsection*{1b}
 
@@ -42,20 +42,20 @@ Article "tmnt raph" is the closest to "tmnt mike", reference Table \ref{tmnt_mik
     \begin{tabular}{c|c}
         \Xhline{3\arrayrulewidth}
         Article & Euclidean distance to "tmnt mike" \\\hline
-        tmnt leo: & 0.0412 \\
-        tmnt raph:& 0.0378 \\
-        tmnt don: & 0.0420 \\
-        real leo: & 0.0489 \\
-        real raph:& 0.0449 \\
-        real mike:& 0.0475 \\
-        real don: & 0.0638 \\
+        tmnt leo & 0.0412 \\
+        tmnt raph& 0.0378 \\
+        tmnt don & 0.0420 \\
+        real leo & 0.0489 \\
+        real raph& 0.0449 \\
+        real mike& 0.0475 \\
+        real don & 0.0638 \\
         \Xhline{3\arrayrulewidth}
     \end{tabular}
 \end{table}
 
 \subsection*{1c}
 
-The distance matrix is found in Table \ref{distance_matrix}. When running hierarchical agglomerative clustering, complete linkage provides the best clusters when $K=2$ because it will cluster the Teenage Mutant Ninja Turtles articles together and the artist articles together, reference Figures \ref{fig:sub1} and \ref{fig:sub2} for the dendograms. 
+The distance matrix is found in Table \ref{distance_matrix}. When running hierarchical agglomerative clustering, complete linkage provides the best clusters when $K=2$ because it will cluster the Teenage Mutant Ninja Turtles articles together and the artist articles together, reference Figures \ref{fig:sub1} and \ref{fig:sub2} for the dendrograms.
 
 \begin{table}[h!]
     \centering
@@ -113,79 +113,64 @@ The top 20 most common words and their word count are found in Table \ref{word_c
     \end{tabular}
 \end{table}
 
+\newpage
+
 \subsection*{1e}
 
-Our collection of 8 wikipedia articles appears to follow Zipf's law. When looking at Figure \ref{fig:zipf}, you can see the data is generally linear with a slope = 1. This implies that the number of times words appear in our article generally follows Zipf's law.
+Our collection of 8 Wikipedia articles appears to follow Zipf's law. When looking at Figure \ref{fig:zipf}, you can see the data is generally linear with a slope = 1. This implies that the number of times words appear in our article generally follows Zipf's law.
 
-\begin{figure}
+\begin{figure}[ht!]
     \centering
     \includegraphics[width=0.5\textwidth]{../plots/zipf_law.png}
     \caption{Word counts in our articles vs Zipf's Law theoretical word counts}
     \label{fig:zipf}
 \end{figure}
 
-\newpage
+\clearpage
 
-\section*{Problem 2}
-
-See attached solutions.
-
-% \subsection*{a.}
-
-% \begin{subequations}
-%     \begin{equation}
-%         \frac{1}{2}\sum_{k=1}^{k}\frac{1}{n_k}\sum_{c(i)=k}\sum_{c(j)=k}\|\mathbf{X_i}-\mathbf{X_j}\|^2_2
-%     \end{equation}
-%     \begin{equation}
-%         \frac{1}{2}\sum_{k=1}^{k}\frac{1}{n_k}\sum_{c(i)=k}\sum_{c(j)=k}\|(\mathbf{X_i}-\overline{\mathbf{X_k}})-(\mathbf{X_j}-\overline{\mathbf{X_k}})\|^2_2
-%     \end{equation}
-%     \begin{equation}
-%         \frac{1}{2}\sum_{k=1}^{k}\frac{1}{n_k}\sum_{c(i)=k}\sum_{c(j)=k}\|(\mathbf{X_i}-\overline{\mathbf{X_k}})\|^2 + \|(\mathbf{X_j}-\overline{\mathbf{X_k}})\|^2 -2\langle\mathbf{X_i}-\overline{\mathbf{X_k}},\mathbf{X_j}-\overline{\mathbf{X_k}}\rangle
-%     \end{equation}
-% \end{subequations}
 
 \section*{Problem 3}
 
 \subsection*{3a,3b}
 
-The hierarchical agglomerative clustering using both single linkage and complete linkage are found in Figure \ref{fig:3a}. Their dendogram plots are found in Figure \ref{fig:3a_den}.
+The hierarchical agglomerative clustering using both single linkage and complete linkage are found in Figure \ref{fig:3a}. Their dendrogram plots are found in Figure \ref{fig:3a_den}.
 
-\begin{figure}
-    \begin{subfigure}{0.5\textwidth}
+\begin{figure}[ht!]
+    \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{../plots/single_linkage.png}
         \caption{Problem 3 data with K=4 and using single linkage to cluster}
-        \label{fig:single_linkage}
     \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{../plots/complete_linkage.png}
         \caption{Problem 3 data with K=4 and using complete linkage to cluster}
-        \label{fig:complete_linkage}
     \end{subfigure}
     \caption{Hierarchical Agglomerative Cluster plots for problems 3a and 3b}\label{fig:3a}
 \end{figure}
 
-\begin{figure}
-    \begin{subfigure}{0.5\textwidth}
+\begin{figure}[ht!]
+    \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{../plots/3a_single_dendrogram.png}
         \caption{Problem 3 data with K=4 and using single linkage to cluster}
-        \label{fig:single_linkage}
     \end{subfigure}
-    \begin{subfigure}{0.5\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\linewidth]{../plots/3a_complete_dendrogram.png}
         \caption{Problem 3 data with K=4 and using complete linkage to cluster}
-        \label{fig:complete_linkage}
     \end{subfigure}
-    \caption{Hierarchical Agglomerative Cluster dendogram plots for problems 3a and 3b}\label{fig:3a_den}
+    \caption{Hierarchical Agglomerative Cluster dendrogram plots for problems 3a and 3b}\label{fig:3a_den}
 \end{figure}
 
-\subsection*{3c}
-The hierarchical agglomerative clustering using both single linkage and complete linkage and the squared distances, $d_{ij}^2$ are found in Figure \ref{fig:3c}. As expected, the dendograms did not change because $h(\cdot)$ is a monotone increase function. Their dendogram plots are found in Figure \ref{fig:3c_den}.
 
-\begin{figure}
+\newpage
+
+
+\subsection*{3c}
+The hierarchical agglomerative clustering using both single linkage and complete linkage with the squared distances, $d_{ij}^2$ are found in Figure \ref{fig:3c}. As expected, the dendrograms did not change because $h(\cdot)$ is a monotone increase function. Their dendrogram plots are found in Figure \ref{fig:3c_den}.
+
+\begin{figure}[ht!]
     \begin{subfigure}{0.5\textwidth}
         \centering
         \includegraphics[width=\linewidth]{../plots/single_squared.png}
@@ -201,7 +186,7 @@ The hierarchical agglomerative clustering using both single linkage and complete
     \caption{Hierarchical Agglomerative Cluster plots for problem 3c}\label{fig:3c}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[ht!]
     \begin{subfigure}{0.5\textwidth}
         \centering
         \includegraphics[width=\linewidth]{../plots/3c_single_squared_dendrogram.png}
@@ -212,16 +197,16 @@ The hierarchical agglomerative clustering using both single linkage and complete
         \includegraphics[width=\linewidth]{../plots/3c_complete_squared_dendrogram.png}
         \caption{Problem 3 data with K=4, squared distances, and using complete linkage to cluster}
     \end{subfigure}
-    \caption{Hierarchical Agglomerative Cluster dendogram plots for problem 3c}\label{fig:3c_den}
+    \caption{Hierarchical Agglomerative Cluster dendrogram plots for problem 3c}\label{fig:3c_den}
 \end{figure}
 
-\subsection*{3d}
+\clearpage
 
 \subsection*{3e}
 
-The hierarchical agglomerative clustering using average linkage with $K=3,4$ and both $d_{ij}$ and $d_{ij}^2$ was conducted. When using $K=4$, the clusters did not change between using $d_{ij}$ and $d_{ij}^2$, reference Figures \ref{fig:average_4} and \ref{fig:average_squared_4}; however, it did change when using $K=3$, reference Figures \ref{fig:average_3} and \ref{fig:average_squared_3}. The dendogram plots are found in Figure \ref{fig:3e_den}.
+The hierarchical agglomerative clustering using average linkage with $K=3,4$ and both $d_{ij}$ and $d_{ij}^2$ was conducted. When using $K=4$, the clusters did not change between using $d_{ij}$ and $d_{ij}^2$, reference Figures \ref{fig:average_4} and \ref{fig:average_squared_4}; however, it did change when using $K=3$, reference Figures \ref{fig:average_3} and \ref{fig:average_squared_3}. The dendrogram plots are found in Figure \ref{fig:3e_den}.
 
-\begin{figure}
+\begin{figure}[ht!]
     \begin{subfigure}{0.5\textwidth}
         \centering
         \includegraphics[width=\linewidth]{../plots/average_linkage_4.png}
@@ -249,7 +234,7 @@ The hierarchical agglomerative clustering using average linkage with $K=3,4$ and
     \caption{Hierarchical Agglomerative Cluster plots for problem 3e}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[ht!]
     \begin{subfigure}{0.5\textwidth}
         \centering
         \includegraphics[width=\linewidth]{../plots/3e_average_dendrogram.png}
@@ -260,7 +245,7 @@ The hierarchical agglomerative clustering using average linkage with $K=3,4$ and
         \includegraphics[width=\linewidth]{../plots/3e_average_squared_dendrogram.png}
         \caption{Problem 3 data with K=4, squared distances, and using complete linkage to cluster}
     \end{subfigure}
-    \caption{Hierarchical Agglomerative Cluster dendogram plots for problem 3c}\label{fig:3e_den}
+    \caption{Hierarchical Agglomerative Cluster dendrogram plots for problem 3c}\label{fig:3e_den}
 \end{figure}
 
 \end{document}
